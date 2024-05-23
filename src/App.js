@@ -2,6 +2,11 @@ import logo from './logo.svg';
 import './App.css';
 
 function App() {
+  fetch('https://employeeservice-39of.onrender.com/employee/getemployee/vignesh').then((res)=>{
+    res.json().then((data)=>{
+      console.log(data)
+    })
+  })
   return (
     <div className="App">
       <header className="App-header">
