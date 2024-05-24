@@ -20,8 +20,8 @@ function Admindashboard() {
                                 Dropdown link
                             </a>
                             <ul className="dropdown-menu">
-                                <li><Link className="dropdown-item" to="/admin/dashboard/addhotel">Action</Link></li>
-                                <li><Link className="dropdown-item" to="/admin/dashboard/edithotel">Another action</Link></li>
+                                <li><Link className="dropdown-item" to="/admin/dashboard/addhotel">Add Hotel</Link></li>
+                                <li><Link className="dropdown-item" to="/admin/dashboard/edithotel">Edit Hotel</Link></li>
                                 <li><Link className="dropdown-item" to="/admin/dashboard/deletehotel">Something else here</Link></li>
                             </ul>
                         </li>
