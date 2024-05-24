@@ -14,7 +14,7 @@ function Header() {
           <Link className="nav-item nav-link" to="/features">Features</Link>
           <Link className="nav-item nav-link" to="#">Pricing</Link>
           <Link className="nav-item nav-link disabled" to="#">Disabled</Link>
-          <Link className='nav-item nav-link' to='/admindashboard'>Admin Dashboard</Link>
+          <Link className='nav-item nav-link' to='/admin/login'>Admin Dashboard</Link>
         </div>
       </div>
     </nav>
