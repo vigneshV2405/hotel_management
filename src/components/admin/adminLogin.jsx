@@ -7,7 +7,7 @@ import {Admin} from '../../constants/admin';
 import { useNavigate } from 'react-router-dom';
 
 function Adminlogin() {
-  var { isAdmin , user } = useSelector((state)=>{return state.common})
+  var { user } = useSelector((state)=>{return state.common})
   const localAdmin = localStorage.getItem('isAdmin')?'yes':null
   console.log(localAdmin)
   const dispatch = useDispatch();

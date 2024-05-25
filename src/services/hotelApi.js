@@ -15,6 +15,15 @@ export const hotelApi = createApi({
         query: (id)=>{
             return `gethotel/${id}`
         }
+    }),
+    addHotel:builder.mutation({
+        query: (body)=>{
+            return {
+                url:'addhotel',
+                method:'post',
+                body:body
+            }
+        }
     })
   }),
 })
@@ -23,5 +32,6 @@ export const hotelApi = createApi({
 export const { 
     useGetAllhotelsQuery,
     useGetHotelbyIdQuery,
-    useLazyGetAllhotelsQuery
+    useLazyGetAllhotelsQuery,
+    useAddHotelMutation
  } = hotelApi;

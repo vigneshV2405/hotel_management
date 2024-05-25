@@ -1,0 +1,122 @@
+import React from 'react';
+import * as Yup from 'yup';
+import { useFormik } from 'formik';
+import { useAddHotelMutation } from '../../services/hotelApi';
+
+function Addhotel() {
+    const [ addHotel ] = useAddHotelMutation();
+    const formik = useFormik({
+        initialValues: {
+          hotelname: '',
+          image: '',
+          contact:0,
+          location:''
+        },
+        validationSchema: Yup.object({
+          hotelname: Yup.string().required('Required'),
+          image: Yup.string().required('Required'),
+          contact: Yup.string().min(10, 'mobile must be 10 characters').max(10,'mobile must be 10 characters').required('Required'),
+          location: Yup.string().required('required')
+        })
+      });
+      function handleSubmit(e){
+        e.preventDefault();
+        if(!formik.errors.hotelname && !formik.errors.image && !formik.errors.contact && !formik.errors.location && formik.values.hotelname!=='' && formik.values.image!=='' && formik.values.contact!==0 && formik.values.location!==''){
+          addHotel(formik.values).then((res)=>{
+            console.log('res:::',res)
+          })
+        }
+      }
+
+      return (
+        <div className='w-75 text-dark mt-5 ms-5'>
+          {
+            ('hello') &&
+            <div>
+                <div style={{textAlign:'center'}} className='w-100 bg-secondary mb-4 p-3 text-white'>
+                    <h1>Add Hotel</h1>
+                </div>
+              <form onSubmit={(event)=>{handleSubmit(event)}} className='bg-light bg-gradient p-3'>
+                  <div>
+                      <label htmlFor="hotelname" className='mb-2'>hotelname</label>
+                      <input
+                      id="hotelname"
+                      name="hotelname"
+                      type="text"
+                      className='form-control'
+                      placeholder='enter hotel name'
+                      onChange={formik.handleChange}
+                      onBlur={formik.handleBlur}
+                      value={formik.values.email}
+                      />
+                      {formik.touched.hotelname && formik.errors.hotelname ? (
+                      <div className='text-danger'>{formik.errors.hotelname}</div>
+                      ) : null}
+                  </div>
+
+                  <div className='mt-3'>
+                      <label htmlFor="password" className='mb-2'>image</label>
+                      <input
+                      id="image"
+                      name="image"
+                      type="url"
+                      className='form-control'
+                      placeholder='enter image url'
+                      onChange={formik.handleChange}
+                      onBlur={formik.handleBlur}
+                      value={formik.values.password}
+                      />
+                      {formik.touched.image && formik.errors.image ? (
+                      <div className='text-danger'>{formik.errors.image}</div>
+                      ) : null}
+                  </div>
+
+                  <div className='mt-3'>
+                      <label htmlFor="password" className='mb-2'>contact no.</label>
+                      <input
+                      id="contact"
+                      name="contact"
+                      type="number"
+                      className='form-control'
+                      placeholder='enter contact no.'
+                      onChange={formik.handleChange}
+                      onBlur={formik.handleBlur}
+                      value={formik.values.password}
+                      />
+                      {formik.touched.contact && formik.errors.contact ? (
+                      <div className='text-danger'>{formik.errors.contact}</div>
+                      ) : null}
+                  </div>
+
+                  <div className='mt-3'>
+                      <label htmlFor="password" className='mb-2'>location</label>
+                      <input
+                      id="location"
+                      name="location"
+                      type="text"
+                      className='form-control'
+                      placeholder='enter hotel location'
+                      onChange={formik.handleChange}
+                      onBlur={formik.handleBlur}
+                      value={formik.values.password}
+                      />
+                      {formik.touched.location && formik.errors.location ? (
+                      <div className='text-danger'>{formik.errors.location}</div>
+                      ) : null}
+                  </div>
+              
+                  <button
+                    type="submit"
+                    className='btn btn-success mt-2'
+                    disabled={!(!formik.errors.hotelname && !formik.errors.image && !formik.errors.contact && !formik.errors.location && formik.values.hotelname!=='' && formik.values.image!=='' && formik.values.contact!==0 && formik.values.location!=='')}
+                  >
+                    Add hotel
+                  </button>
+              </form>
+            </div>
+          }
+        </div>
+      );
+}
+
+export default Addhotel

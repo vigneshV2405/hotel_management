@@ -12,6 +12,7 @@ import { Provider } from 'react-redux';
 import { store } from './store/store';
 import Admin from './components/admin/admin';
 import Admindashboard from './components/admin/admindashboard';
+import Addhotel from './components/admin/addhotel';
 
 const router = createBrowserRouter([
   {
@@ -38,7 +39,13 @@ const router = createBrowserRouter([
           },
           {
             path:'/admin/dashboard',
-            element:<Admindashboard/>
+            element:<Admindashboard/>,
+            children:[
+              {
+                path:'/admin/dashboard/addhotel',
+                element:<Addhotel/>
+              }
+            ]
           }
         ]
       }
