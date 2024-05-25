@@ -1,10 +1,17 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import * as Yup from 'yup';
 import { useFormik } from 'formik';
 import { useAddHotelMutation } from '../../services/hotelApi';
+import { useNavigate } from 'react-router-dom';
 
 function Addhotel() {
     const [ addHotel ] = useAddHotelMutation();
+    const navigate = useNavigate();
+    useEffect(()=>{
+        if(!localStorage.getItem('isAdmin')){
+            navigate('/admin/login')
+        }
+    },[])
     const formik = useFormik({
         initialValues: {
           hotelname: '',
@@ -23,7 +30,9 @@ function Addhotel() {
         e.preventDefault();
         if(!formik.errors.hotelname && !formik.errors.image && !formik.errors.contact && !formik.errors.location && formik.values.hotelname!=='' && formik.values.image!=='' && formik.values.contact!==0 && formik.values.location!==''){
           addHotel(formik.values).then((res)=>{
-            console.log('res:::',res)
+            if(res.data.added){
+                navigate('/admin/dashboard')
+            }
           })
         }
       }
@@ -36,7 +45,7 @@ function Addhotel() {
                 <div style={{textAlign:'center'}} className='w-100 bg-secondary mb-4 p-3 text-white'>
                     <h1>Add Hotel</h1>
                 </div>
-              <form onSubmit={(event)=>{handleSubmit(event)}} className='bg-light bg-gradient p-3'>
+              <form onSubmit={(event)=>{handleSubmit(event)}} className='bg-light bg-gradient p-4'>
                   <div>
                       <label htmlFor="hotelname" className='mb-2'>hotelname</label>
                       <input
@@ -107,7 +116,7 @@ function Addhotel() {
               
                   <button
                     type="submit"
-                    className='btn btn-success mt-2'
+                    className='btn btn-success mt-5'
                     disabled={!(!formik.errors.hotelname && !formik.errors.image && !formik.errors.contact && !formik.errors.location && formik.values.hotelname!=='' && formik.values.image!=='' && formik.values.contact!==0 && formik.values.location!=='')}
                   >
                     Add hotel

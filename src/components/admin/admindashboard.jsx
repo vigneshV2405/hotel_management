@@ -1,7 +1,15 @@
-import React from 'react'
-import { Link, Outlet } from 'react-router-dom'
+import React, { useEffect } from 'react'
+import { useSelector } from 'react-redux'
+import { Link, Outlet, useNavigate } from 'react-router-dom'
 
 function Admindashboard() {
+    const { user } = useSelector((state)=>{return state.common})
+    const navigate = useNavigate();
+    useEffect(()=>{
+        if(!localStorage.getItem('isAdmin')){
+            navigate('/admin/login')
+        }
+    },[])
   return (
     <div>
         <nav className="navbar navbar-expand-lg bg-body-tertiary">

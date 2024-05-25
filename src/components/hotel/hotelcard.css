@@ -1,0 +1,10 @@
+.hotel-card{
+    height: 300 rem;
+    border: 1px dotted;
+    border-radius: 50px dotted;
+    margin: 5px;
+    padding: 5px;
+}
+.hotel-card img{
+    object-fit: contain;
+}
