@@ -3,7 +3,6 @@ import { useSelector } from 'react-redux'
 import { Link, Outlet, useNavigate } from 'react-router-dom'
 
 function Admindashboard() {
-    const { user } = useSelector((state)=>{return state.common})
     const navigate = useNavigate();
     useEffect(()=>{
         if(!localStorage.getItem('isAdmin')){
