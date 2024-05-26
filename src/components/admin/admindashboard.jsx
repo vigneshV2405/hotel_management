@@ -1,5 +1,4 @@
 import React, { useEffect } from 'react'
-import { useSelector } from 'react-redux'
 import { Link, Outlet, useNavigate } from 'react-router-dom'
 
 function Admindashboard() {
@@ -23,7 +22,7 @@ function Admindashboard() {
                             <span className="nav-link active" aria-current="page">click dropdown for actions</span>
                         </li>
                         <li className="nav-item dropdown">
-                            <a className="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                            <a className="nav-link dropdown-toggle" href='/' role="button" data-bs-toggle="dropdown" aria-expanded="false">
                                 Dropdown link
                             </a>
                             <ul className="dropdown-menu">
