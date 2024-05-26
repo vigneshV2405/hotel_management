@@ -1,4 +1,4 @@
-import React  from 'react';
+import React from 'react';
 import { useGetAllhotelsQuery } from '../services/hotelApi';
 import Hotelcard from './hotel/hotelcard';
 

@@ -13,6 +13,7 @@ import { store } from './store/store';
 import Admin from './components/admin/admin';
 import Admindashboard from './components/admin/admindashboard';
 import Addhotel from './components/admin/addhotel';
+import Hotel from './components/hotel/hotel';
 
 const router = createBrowserRouter([
   {
@@ -28,6 +29,10 @@ const router = createBrowserRouter([
         element:(
           <h1>About us</h1>
         )
+      },
+      {
+        path:'/hotel/:_id',
+        element:<Hotel/>
       },
       {
         path:'/admin',
