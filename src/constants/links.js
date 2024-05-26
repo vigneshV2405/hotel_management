@@ -1,0 +1,1 @@
+export const back_url = 'https://backend-hotelmngmnt.onrender.com/'

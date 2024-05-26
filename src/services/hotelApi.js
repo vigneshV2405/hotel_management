@@ -1,10 +1,11 @@
 // Need to use the React-specific entry point to import createApi
-import { createApi, fetchBaseQuery } from '@reduxjs/toolkit/query/react'
+import { createApi, fetchBaseQuery } from '@reduxjs/toolkit/query/react';
+import { back_url } from '../constants/links'
 
 // Define a service using a base URL and expected endpoints
 export const hotelApi = createApi({
   reducerPath: 'hospApi',
-  baseQuery: fetchBaseQuery({ baseUrl: 'http://localhost:3500/'}),
+  baseQuery: fetchBaseQuery({ baseUrl: back_url}),
   endpoints: (builder) => ({
     getAllhotels:builder.query({
         query:()=>{
