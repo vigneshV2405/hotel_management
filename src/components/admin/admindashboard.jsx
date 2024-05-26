@@ -9,7 +9,7 @@ function Admindashboard() {
         if(!localStorage.getItem('isAdmin')){
             navigate('/admin/login')
         }
-    },[])
+    })
   return (
     <div>
         <nav className="navbar navbar-expand-lg bg-body-tertiary">

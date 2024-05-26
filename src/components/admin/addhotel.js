@@ -11,7 +11,7 @@ function Addhotel() {
         if(!localStorage.getItem('isAdmin')){
             navigate('/admin/login')
         }
-    },[])
+    })
     const formik = useFormik({
         initialValues: {
           hotelname: '',

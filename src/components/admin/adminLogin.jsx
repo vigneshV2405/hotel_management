@@ -15,7 +15,7 @@ function Adminlogin() {
     if(localStorage.getItem('isAdmin')){
       navigate('/admin/dashboard')
     }
-  },[])
+  })
     const formik = useFormik({
         initialValues: {
           email: '',
