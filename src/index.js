@@ -5,7 +5,7 @@ import {
   RouterProvider,
 } from "react-router-dom";
 import App from './App';
-import Home from './components/home'
+import Home from './components/home/home'
 import reportWebVitals from './reportWebVitals'
 import Adminlogin from './components/admin/adminLogin';
 import { Provider } from 'react-redux';
@@ -14,6 +14,7 @@ import Admin from './components/admin/admin';
 import Admindashboard from './components/admin/admindashboard';
 import Addhotel from './components/admin/addhotel';
 import Hotel from './components/hotel/hotel';
+import Edithotel from './components/admin/edithotel';
 
 const router = createBrowserRouter([
   {
@@ -49,6 +50,10 @@ const router = createBrowserRouter([
               {
                 path:'/admin/dashboard/addhotel',
                 element:<Addhotel/>
+              },
+              {
+                path:'/admin/dashboard/edithotel',
+                element:<Edithotel/>
               }
             ]
           }

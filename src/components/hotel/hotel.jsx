@@ -2,18 +2,16 @@ import React from 'react'
 import { useParams } from 'react-router-dom'
 import { useGetHotelbyIdQuery } from '../../services/hotelApi';
 import './hotel.css'
+import Loader from '../home/loader';
 
 function Hotel() {
     const params = useParams();
     const { data , isLoading } = useGetHotelbyIdQuery(params._id)
-    if(!isLoading){
-        console.log(data)
-    }
   return (
     <div>
         {
             !data &&
-            <h1>Loading...</h1>
+            <Loader/>
         }
         {
             data &&

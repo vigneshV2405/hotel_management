@@ -3,6 +3,7 @@ import * as Yup from 'yup';
 import { useFormik } from 'formik';
 import { useAddHotelMutation } from '../../services/hotelApi';
 import { useNavigate } from 'react-router-dom';
+import Back from '../features/back/back';
 
 function Addhotel() {
     const [ addHotel ] = useAddHotelMutation();
@@ -36,9 +37,13 @@ function Addhotel() {
           })
         }
       }
+      function back(){
+        navigate('/admin/dashboard')
+      }
 
       return (
         <div className='w-75 text-dark mt-5 ms-5'>
+          <Back onClick={back} />
           {
             ('hello') &&
             <div>
