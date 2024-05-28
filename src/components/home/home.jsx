@@ -15,10 +15,11 @@ function Home() {
       {
         !isLoading &&
         <>
-          <div class="wrap-input-17"><div class="search-box">
-            <button class="btn-search">🔍</button>
-            <input type="text" class="input-search" placeholder="Type to Search..."/>
-          </div>
+          <div class="wrap-input-17">
+            <div class="search-box">
+              <button class="btn-search">🔍</button>
+              <input type="text" class="input-search" placeholder="Type to Search..."/>
+            </div>
           </div>
           <div className='d-flex flex-wrap justify-content-start'>
             {

@@ -61,7 +61,7 @@ function Addhotel() {
                       placeholder='enter hotel name'
                       onChange={formik.handleChange}
                       onBlur={formik.handleBlur}
-                      value={formik.values.email}
+                      value={formik.values.hotelname}
                       />
                       {formik.touched.hotelname && formik.errors.hotelname ? (
                       <div className='text-danger'>{formik.errors.hotelname}</div>
@@ -78,7 +78,7 @@ function Addhotel() {
                       placeholder='enter image url'
                       onChange={formik.handleChange}
                       onBlur={formik.handleBlur}
-                      value={formik.values.password}
+                      value={formik.values.image}
                       />
                       {formik.touched.image && formik.errors.image ? (
                       <div className='text-danger'>{formik.errors.image}</div>
@@ -95,7 +95,7 @@ function Addhotel() {
                       placeholder='enter contact no.'
                       onChange={formik.handleChange}
                       onBlur={formik.handleBlur}
-                      value={formik.values.password}
+                      value={formik.values.contact}
                       />
                       {formik.touched.contact && formik.errors.contact ? (
                       <div className='text-danger'>{formik.errors.contact}</div>
@@ -112,7 +112,7 @@ function Addhotel() {
                       placeholder='enter hotel location'
                       onChange={formik.handleChange}
                       onBlur={formik.handleBlur}
-                      value={formik.values.password}
+                      value={formik.values.location}
                       />
                       {formik.touched.location && formik.errors.location ? (
                       <div className='text-danger'>{formik.errors.location}</div>
@@ -121,7 +121,7 @@ function Addhotel() {
               
                   <button
                     type="submit"
-                    className='btn btn-success mt-5'
+                    className='btn btn-success mt-5 p-0'
                     disabled={!(!formik.errors.hotelname && !formik.errors.image && !formik.errors.contact && !formik.errors.location && formik.values.hotelname!=='' && formik.values.image!=='' && formik.values.contact!==0 && formik.values.location!=='')}
                   >
                     Add hotel
