@@ -19,11 +19,11 @@ function Adminlogin() {
     const formik = useFormik({
         initialValues: {
           email: '',
-          password: '',
+          pas: '',
         },
         validationSchema: Yup.object({
           email: Yup.string().email('Invalid email address').required('Required'),
-          password: Yup.string().min(6, 'Password must be at least 6 characters').required('Required'),
+          pas: Yup.string().min(6, 'Password must be at least 6 characters').required('Required'),
         }),
         onSubmit: values => {
           alert(JSON.stringify(values, null, 2));
@@ -31,9 +31,9 @@ function Adminlogin() {
       });
       function handleSubmit(e){
         e.preventDefault();
-        if(!formik.errors.email && !formik.errors.password){
-          if(formik.values.email===Admin.username && +formik.values.password===Admin.password){
-            dispatch(changeUser({isAdmin:true,user:{username:formik.values.email,password:formik.values.password}}))
+        if(!formik.errors.email && !formik.errors.pas){
+          if(formik.values.email===Admin.username && +formik.values.pas===Admin.pas){
+            dispatch(changeUser({isAdmin:true,user:{username:formik.values.email,pas:formik.values.pas}}))
             localStorage.setItem('isAdmin','true')
             navigate('/admin/dashboard')
           }
@@ -64,19 +64,19 @@ function Adminlogin() {
                   </div>
 
                   <div className='mt-3'>
-                      <label htmlFor="password">Password</label>
+                      <label htmlFor="pas">Pas</label>
                       <input
-                      id="password"
-                      name="password"
-                      type="password"
+                      id="pas"
+                      name="pas"
+                      type="text"
                       className='form-control'
-                      placeholder='enter password'
+                      placeholder='enter pass'
                       onChange={formik.handleChange}
                       onBlur={formik.handleBlur}
-                      value={formik.values.password}
+                      value={formik.values.pas}
                       />
-                      {formik.touched.password && formik.errors.password ? (
-                      <div className='text-danger'>{formik.errors.password}</div>
+                      {formik.touched.pas && formik.errors.pas ? (
+                      <div className='text-danger'>{formik.errors.pas}</div>
                       ) : null}
                   </div>
               
