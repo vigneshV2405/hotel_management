@@ -15,7 +15,7 @@ import Admindashboard from './components/admin/admindashboard';
 import Addhotel from './components/admin/addhotel';
 import Hotel from './components/hotel/hotel';
 import Edithotel from './components/admin/edithotel';
-import Deletehotel from './components/admin/deletehotel';
+import Deletehotel from './components/admin/delete/deletehotel';
 
 const router = createBrowserRouter([
   {
