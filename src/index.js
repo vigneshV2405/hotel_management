@@ -15,6 +15,7 @@ import Admindashboard from './components/admin/admindashboard';
 import Addhotel from './components/admin/addhotel';
 import Hotel from './components/hotel/hotel';
 import Edithotel from './components/admin/edithotel';
+import Deletehotel from './components/admin/deletehotel';
 
 const router = createBrowserRouter([
   {
@@ -54,6 +55,10 @@ const router = createBrowserRouter([
               {
                 path:'/admin/dashboard/edithotel',
                 element:<Edithotel/>
+              },
+              {
+                path:'/admin/dashboard/deletehotel',
+                element:<Deletehotel/>
               }
             ]
           }
