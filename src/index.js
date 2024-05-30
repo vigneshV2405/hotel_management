@@ -16,6 +16,7 @@ import Addhotel from './components/admin/addhotel';
 import Hotel from './components/hotel/hotel';
 import Edithotel from './components/admin/edithotel';
 import Deletehotel from './components/admin/delete/deletehotel';
+import Aboutus from './components/aboutus';
 
 const router = createBrowserRouter([
   {
@@ -29,7 +30,7 @@ const router = createBrowserRouter([
       {
         path:'/about',
         element:(
-          <h1>About us</h1>
+          <Aboutus/>
         )
       },
       {

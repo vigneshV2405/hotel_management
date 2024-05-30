@@ -12,10 +12,11 @@ function Adminlogin() {
   const dispatch = useDispatch();
   const navigate = useNavigate();
   useEffect(()=>{
+    document.title = 'Hotels - Login'
     if(localStorage.getItem('isAdmin')){
       navigate('/admin/dashboard')
     }
-  })
+  },[])
     const formik = useFormik({
         initialValues: {
           email: '',

@@ -14,6 +14,9 @@ function Edithotel() {
     const [ errors , setErrors ] = useState(null)
     const navigate = useNavigate();
     useEffect(()=>{
+        document.title = 'Hotels - Edit hotel'
+    },[])
+    useEffect(()=>{
         if(!localStorage.getItem('isAdmin')){
             navigate('/admin/login')
         }

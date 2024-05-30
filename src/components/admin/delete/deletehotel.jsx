@@ -16,7 +16,7 @@ function Deletehotel() {
 
     useEffect(()=>{
       refetchNames();
-      document.title = 'Delete Hotel'
+      document.title = 'Hotels - Delete Hotel'
     },[])
     function back(){
       navigate('/admin/dashboard');

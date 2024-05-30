@@ -4,10 +4,11 @@ import { Link, Outlet, useNavigate } from 'react-router-dom'
 function Admindashboard() {
     const navigate = useNavigate();
     useEffect(()=>{
+        document.title = 'Admin Dashboard'
         if(!localStorage.getItem('isAdmin')){
             navigate('/admin/login')
         }
-    })
+    },[])
   return (
     <div>
         <nav className="navbar navbar-expand-lg bg-body-tertiary">
@@ -28,7 +29,7 @@ function Admindashboard() {
                             <ul className="dropdown-menu">
                                 <li><Link className="dropdown-item" to="/admin/dashboard/addhotel">Add Hotel</Link></li>
                                 <li><Link className="dropdown-item" to="/admin/dashboard/edithotel">Edit Hotel</Link></li>
-                                <li><Link className="dropdown-item" to="/admin/dashboard/deletehotel">Something else here</Link></li>
+                                <li><Link className="dropdown-item" to="/admin/dashboard/deletehotel">Delete Hotel</Link></li>
                             </ul>
                         </li>
                     </ul>

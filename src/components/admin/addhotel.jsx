@@ -9,10 +9,11 @@ function Addhotel() {
     const [ addHotel ] = useAddHotelMutation();
     const navigate = useNavigate();
     useEffect(()=>{
+      document.title = 'Hotels - Add hotel'
         if(!localStorage.getItem('isAdmin')){
             navigate('/admin/login')
         }
-    })
+    },[])
     const formik = useFormik({
         initialValues: {
           hotelname: '',
