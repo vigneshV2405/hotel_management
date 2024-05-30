@@ -5,7 +5,7 @@ import { back_url } from '../constants/links'
 // Define a service using a base URL and expected endpoints
 export const hotelApi = createApi({
   reducerPath: 'hospApi',
-  baseQuery: fetchBaseQuery({ baseUrl: "http://localhost:3500/"}),
+  baseQuery: fetchBaseQuery({ baseUrl: back_url}),
   endpoints: (builder) => ({
     getAllhotels:builder.query({
         query:()=>{
@@ -42,6 +42,15 @@ export const hotelApi = createApi({
                 }
             }
         }
+    }),
+    deleteHotel : builder.mutation({
+        query: (id)=>{
+            return {
+                url:'deletehotel',
+                method:'delete',
+                body:id
+            }
+        }
     })
   }),
 })
@@ -55,5 +64,6 @@ export const {
     useGetHotelnamesQuery,
     useEditHotelMutation,
     useLazyGetHotelnamesQuery,
-    useLazyGetHotelbyIdQuery
+    useLazyGetHotelbyIdQuery,
+    useDeleteHotelMutation
  } = hotelApi;
