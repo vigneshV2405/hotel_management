@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { useGetAllhotelsQuery } from '../../services/hotelApi';
 import Hotelcard from '../hotel/hotelcard';
 import Loader from './loader';
@@ -6,6 +6,9 @@ import './search.css'
 
 function Home() {
   const { data , isLoading } = useGetAllhotelsQuery();
+  useEffect(()=>{
+    document.title = 'Hotels'
+  },[])
   return (
     <div>
       {
