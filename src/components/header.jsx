@@ -1,5 +1,6 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
+import Search from './features/search/search'
 
 function Header() {
   return (
@@ -14,7 +15,8 @@ function Header() {
           <Link className="nav-item nav-link" to="/features">Features</Link>
           <Link className="nav-item nav-link" to="#">Pricing</Link>
           <Link className="nav-item nav-link disabled" to="#">Disabled</Link>
-          <Link className='nav-item nav-link' to='/admin/login'>Admin Dashboard</Link>
+          <Link className='nav-item nav-link' to='/admin/dashboard'>Admin Dashboard</Link>
+          <Search/>
         </div>
       </div>
     </nav>

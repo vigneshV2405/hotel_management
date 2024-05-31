@@ -10,9 +10,6 @@ function Addhotel() {
     const navigate = useNavigate();
     useEffect(()=>{
       document.title = 'Hotels - Add hotel'
-        if(!localStorage.getItem('isAdmin')){
-            navigate('/admin/login')
-        }
     },[])
     const formik = useFormik({
         initialValues: {
@@ -43,11 +40,9 @@ function Addhotel() {
       }
 
       return (
-        <div className='w-75 text-dark mt-5 ms-5'>
+        <div className='w-75 text-dark'>
           <Back onClick={back} />
-          {
-            ('hello') &&
-            <div>
+            <div className='mt-5 ms-5'>
                 <div style={{textAlign:'center'}} className='w-100 bg-secondary mb-4 p-3 text-white'>
                     <h1>Add Hotel</h1>
                 </div>
@@ -55,14 +50,14 @@ function Addhotel() {
                   <div>
                       <label htmlFor="hotelname" className='mb-2'>hotelname</label>
                       <input
-                      id="hotelname"
-                      name="hotelname"
-                      type="text"
-                      className='form-control'
-                      placeholder='enter hotel name'
-                      onChange={formik.handleChange}
-                      onBlur={formik.handleBlur}
-                      value={formik.values.hotelname}
+                        id="hotelname"
+                        name="hotelname"
+                        type="text"
+                        className='form-control'
+                        placeholder='enter hotel name'
+                        onChange={formik.handleChange}
+                        onBlur={formik.handleBlur}
+                        value={formik.values.hotelname}
                       />
                       {formik.touched.hotelname && formik.errors.hotelname ? (
                       <div className='text-danger'>{formik.errors.hotelname}</div>
@@ -72,14 +67,14 @@ function Addhotel() {
                   <div className='mt-3'>
                       <label htmlFor="password" className='mb-2'>image</label>
                       <input
-                      id="image"
-                      name="image"
-                      type="url"
-                      className='form-control'
-                      placeholder='enter image url'
-                      onChange={formik.handleChange}
-                      onBlur={formik.handleBlur}
-                      value={formik.values.image}
+                        id="image"
+                        name="image"
+                        type="url"
+                        className='form-control'
+                        placeholder='enter image url'
+                        onChange={formik.handleChange}
+                        onBlur={formik.handleBlur}
+                        value={formik.values.image}
                       />
                       {formik.touched.image && formik.errors.image ? (
                       <div className='text-danger'>{formik.errors.image}</div>
@@ -89,14 +84,14 @@ function Addhotel() {
                   <div className='mt-3'>
                       <label htmlFor="password" className='mb-2'>contact no.</label>
                       <input
-                      id="contact"
-                      name="contact"
-                      type="number"
-                      className='form-control'
-                      placeholder='enter contact no.'
-                      onChange={formik.handleChange}
-                      onBlur={formik.handleBlur}
-                      value={formik.values.contact}
+                        id="contact"
+                        name="contact"
+                        type="number"
+                        className='form-control'
+                        placeholder='enter contact no.'
+                        onChange={formik.handleChange}
+                        onBlur={formik.handleBlur}
+                        value={formik.values.contact}
                       />
                       {formik.touched.contact && formik.errors.contact ? (
                       <div className='text-danger'>{formik.errors.contact}</div>
@@ -106,20 +101,20 @@ function Addhotel() {
                   <div className='mt-3'>
                       <label htmlFor="password" className='mb-2'>location</label>
                       <input
-                      id="location"
-                      name="location"
-                      type="text"
-                      className='form-control'
-                      placeholder='enter hotel location'
-                      onChange={formik.handleChange}
-                      onBlur={formik.handleBlur}
-                      value={formik.values.location}
+                        id="location"
+                        name="location"
+                        type="text"
+                        className='form-control'
+                        placeholder='enter hotel location'
+                        onChange={formik.handleChange}
+                        onBlur={formik.handleBlur}
+                        value={formik.values.location}
                       />
                       {formik.touched.location && formik.errors.location ? (
                       <div className='text-danger'>{formik.errors.location}</div>
                       ) : null}
                   </div>
-              
+                  
                   <button
                     type="submit"
                     className='btn btn-success mt-5 p-0'
@@ -129,7 +124,6 @@ function Addhotel() {
                   </button>
               </form>
             </div>
-          }
         </div>
       );
 }

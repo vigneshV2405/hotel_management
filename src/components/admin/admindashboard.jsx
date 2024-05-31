@@ -1,13 +1,9 @@
 import React, { useEffect } from 'react'
-import { Link, Outlet, useNavigate } from 'react-router-dom'
+import { Link, Outlet } from 'react-router-dom'
 
 function Admindashboard() {
-    const navigate = useNavigate();
     useEffect(()=>{
         document.title = 'Admin Dashboard'
-        if(!localStorage.getItem('isAdmin')){
-            navigate('/admin/login')
-        }
     },[])
   return (
     <div>
@@ -19,12 +15,9 @@ function Admindashboard() {
                 </button>
                 <div className="collapse navbar-collapse" id="navbarNavDropdown">
                     <ul className="navbar-nav">
-                        <li className="nav-item">
-                            <span className="nav-link active" aria-current="page">click dropdown for actions</span>
-                        </li>
                         <li className="nav-item dropdown">
                             <a className="nav-link dropdown-toggle" href='/' role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                                Dropdown link
+                                click here for more actions
                             </a>
                             <ul className="dropdown-menu">
                                 <li><Link className="dropdown-item" to="/admin/dashboard/addhotel">Add Hotel</Link></li>

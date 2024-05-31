@@ -15,8 +15,8 @@ function Deletehotel() {
     const inpref = useRef();
 
     useEffect(()=>{
+      document.title = 'Hotels - Delete Hotel';
       refetchNames();
-      document.title = 'Hotels - Delete Hotel'
     },[])
     function back(){
       navigate('/admin/dashboard');
@@ -46,7 +46,7 @@ function Deletehotel() {
           isLoading &&
           <Loader/>
         }
-        <div className='radio-group mt-3' >
+        <div className='radio-group mt-3 w-75' >
           <form>
             {
               data &&

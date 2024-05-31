@@ -1,8 +1,8 @@
-import React, { useEffect } from 'react'
+import React, { useEffect } from 'react';
 
 function Aboutus() {
     useEffect(()=>{
-        document.title = 'Hotels - About us'
+        document.title = 'Hotels - About us';
     },[])
 
   return (
@@ -12,4 +12,4 @@ function Aboutus() {
   )
 }
 
-export default Aboutus
+export default Aboutus;

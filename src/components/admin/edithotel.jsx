@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { useEditHotelMutation, useGetHotelbyIdQuery, useGetHotelnamesQuery, useLazyGetHotelbyIdQuery, useLazyGetHotelnamesQuery } from '../../services/hotelApi';
 import Loader from '../home/loader';
+import Back from '../features/back/back';
 
 function Edithotel() {
     const [ selectedHotelId , setSelected ] = useState(null);
@@ -14,21 +15,19 @@ function Edithotel() {
     const [ errors , setErrors ] = useState(null)
     const navigate = useNavigate();
     useEffect(()=>{
-        document.title = 'Hotels - Edit hotel'
-    },[])
-    useEffect(()=>{
-        if(!localStorage.getItem('isAdmin')){
-            navigate('/admin/login')
-        }
+        document.title = 'Hotels - Edit hotel';
         relo1();
         relo2(selectedHotelId);
-    })
+    },[])
     useEffect(()=>{
         setCurrent({...hotelDetails?.hotel})
     },[hotelDetails])
 
     function handleChange(e){
         setSelected(e.target.value)
+    }
+    function back(){
+        navigate('/admin/dashboard')
     }
     function handleSubmit(e){
         e.preventDefault();
@@ -87,14 +86,15 @@ function Edithotel() {
     }
 
   return (
-    <div className='mt-4 ms-4' >
+    <div className='' >
+        <Back onClick={back} />
         {
             isLoading &&
             <Loader/>
         }
         {
             data &&
-            <div>
+            <div className='mt-2' >
                 <select onChange={(event)=>{handleChange(event)}} >
                     <option disabled selected >select a hotel to edit </option>
                     {

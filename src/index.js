@@ -7,7 +7,6 @@ import {
 import App from './App';
 import Home from './components/home/home'
 import reportWebVitals from './reportWebVitals'
-import Adminlogin from './components/admin/adminLogin';
 import { Provider } from 'react-redux';
 import { store } from './store/store';
 import Admin from './components/admin/admin';
@@ -17,6 +16,7 @@ import Hotel from './components/hotel/hotel';
 import Edithotel from './components/admin/edithotel';
 import Deletehotel from './components/admin/delete/deletehotel';
 import Aboutus from './components/aboutus';
+import Adminwelcome from './components/admin/adminwelcome';
 
 const router = createBrowserRouter([
   {
@@ -42,13 +42,13 @@ const router = createBrowserRouter([
         element:<Admin/>,
         children:[
           {
-            path:'/admin/login',
-            element:<Adminlogin/>
-          },
-          {
             path:'/admin/dashboard',
             element:<Admindashboard/>,
             children:[
+              {
+                path:'/admin/dashboard/',
+                element:<Adminwelcome/>
+              },
               {
                 path:'/admin/dashboard/addhotel',
                 element:<Addhotel/>

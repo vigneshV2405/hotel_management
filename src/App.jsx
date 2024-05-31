@@ -6,14 +6,12 @@ import { useEffect } from "react";
 
 
 function App() {
-  useEffect(()=>{
-    
-  },[])
   
   return (
     <div>
       <Header/>
       <Outlet/>
+      
     </div>
   );
 }
