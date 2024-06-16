@@ -14,6 +14,9 @@ function Search() {
   const navigate = useNavigate();
 
   useEffect(()=>{
+    document.title = 'Hotels - search'
+  },[])
+  useEffect(()=>{
     var t = setTimeout(()=>{
       if(text.length){
         fetch(`${back_url}searchbyname/${text}`).then((res)=>{

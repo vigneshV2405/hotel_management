@@ -6,7 +6,10 @@ import Loader from '../home/loader';
 
 function Hotel() {
     const params = useParams();
-    const { data , isLoading } = useGetHotelbyIdQuery(params._id)
+    const { data , isLoading } = useGetHotelbyIdQuery(params._id);
+    if(!isLoading){
+        document.title = data.hotel.hotelname
+    }
   return (
     <div>
         {
