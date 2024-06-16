@@ -17,6 +17,7 @@ import Edithotel from './components/admin/edithotel';
 import Deletehotel from './components/admin/delete/deletehotel';
 import Aboutus from './components/aboutus';
 import Adminwelcome from './components/admin/adminwelcome';
+import Search from './components/features/search/search';
 
 const router = createBrowserRouter([
   {
@@ -36,6 +37,10 @@ const router = createBrowserRouter([
       {
         path:'/hotel/:_id',
         element:<Hotel/>
+      },
+      {
+        path:'/search',
+        element:<Search/>
       },
       {
         path:'/admin',

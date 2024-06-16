@@ -1,14 +1,76 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import './search.css';
+import Searchinpt from './searchinpt';
+import { useNavigate } from 'react-router-dom';
+import { Link } from 'react-router-dom';
+import { back_url } from '../../../constants/links';
 
 function Search() {
+  const [ text , setText ] = useState('');
+  const [ results , setResults ] = useState({
+    message : 'none',
+    searches : []
+  });
+  const navigate = useNavigate();
+
+  useEffect(()=>{
+    var t = setTimeout(()=>{
+      if(text.length){
+        fetch(`${back_url}searchbyname/${text}`).then((res)=>{
+        res.json().then((resp)=>{
+          setResults({message:(resp.filtered.length===0?'not found':'found'),searches:[...resp.filtered]})
+        })
+      })
+      }
+      if(text.length===0){
+        setResults({message:'none',searches:[]})
+      }
+    },500)
+    return ()=>{
+      clearTimeout(t)
+    }
+  },[text])
+
+  function Result({hotel}){
+    return(
+      <Link to={`/hotel/${hotel._id}`} className='search-result' >
+        <span>{hotel.hotelname}</span>
+      </Link>
+    )
+  }
+  function Nomatch(){
+    return(
+      <div className='' >
+        <span>no match found</span>
+      </div>
+    )
+  }
+  function Entersmthng(){
+    return(
+      <div>
+        <span>type in for results</span>
+      </div>
+    )
+  }
+
   return (
-    <div class="inputBox_container position-absolute end-0 mr-3">
-      <svg class="search_icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 48 48" alt="search icon">
-        <path d="M46.599 46.599a4.498 4.498 0 0 1-6.363 0l-7.941-7.941C29.028 40.749 25.167 42 21 42 9.402 42 0 32.598 0 21S9.402 0 21 0s21 9.402 21 21c0 4.167-1.251 8.028-3.342 11.295l7.941 7.941a4.498 4.498 0 0 1 0 6.363zM21 6C12.717 6 6 12.714 6 21s6.717 15 15 15c8.286 0 15-6.714 15-15S29.286 6 21 6z">
-        </path>
-      </svg>
-      <input class="inputBox" id="inputBox" type="text" placeholder="Search For Products"/>
+    <div className='main-s-container' >
+      <div className='search-container' >
+        <Searchinpt text={text} setText={setText}/>
+      </div>
+      <div className='results-container' >
+        <div className='results-subcontainer' >
+          {
+            text.length===0?<Entersmthng/>:
+            results.message==='not found'?<Nomatch/>:
+            results.searches.map((h)=>{
+              return(
+                <Result hotel={h} key={h._id}  />
+              )
+            })
+          }
+        </div>
+      </div>
     </div>
   )
 }

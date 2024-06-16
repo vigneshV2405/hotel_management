@@ -1,13 +1,14 @@
 import React, { useEffect } from 'react';
-import { useGetAllhotelsQuery } from '../../services/hotelApi';
+import { useGetAllhotelsQuery, useLazyGetAllhotelsQuery } from '../../services/hotelApi';
 import Hotelcard from '../hotel/hotelcard';
 import Loader from './loader';
-import './search.css'
 
 function Home() {
   const { data , isLoading } = useGetAllhotelsQuery();
+  const [ refreshHotels ] = useLazyGetAllhotelsQuery();
   useEffect(()=>{
-    document.title = 'Hotels'
+    document.title = 'Hotels';
+    refreshHotels()
   },[])
   return (
     <div>
@@ -18,7 +19,7 @@ function Home() {
       {
         !isLoading &&
         <>
-          <div className='d-flex flex-wrap justify-content-start'>
+          <div className='d-flex flex-wrap justify-content-between'>
             {
               data.data.map((hotel)=>{
                 return (

@@ -51,6 +51,9 @@ export const hotelApi = createApi({
                 body:id
             }
         }
+    }),
+    searchHotelbyname : builder.query({
+        query : (text)=>`searchbyname/${text}`
     })
   }),
 })
@@ -65,5 +68,6 @@ export const {
     useEditHotelMutation,
     useLazyGetHotelnamesQuery,
     useLazyGetHotelbyIdQuery,
-    useDeleteHotelMutation
+    useDeleteHotelMutation,
+    useSearchHotelbynameQuery
  } = hotelApi;
