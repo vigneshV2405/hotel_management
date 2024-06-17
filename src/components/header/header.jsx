@@ -8,7 +8,7 @@ function Header() {
 
   return (
     <nav className='navbar' >
-        <Link className='title' to='/' >Website Name</Link>
+        <Link className='title' to='/' >Hotels</Link>
         <div className='menu' onClick={()=>{setMenuopened(!menuOpened)}} >
             <span></span>
             <span></span>
